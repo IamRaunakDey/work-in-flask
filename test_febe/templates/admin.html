@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Access Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('homepage') }}">RETURN TO HOME PAGE</a>
+    <div class="container">
+        <h2>Admin Access Page</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody id="registrationData">
+                
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Fetch data and display in the table
+        // fetch('/get_data')
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         //console.log(data);
+                
+        //          const registrationData = document.getElementById('registrationData');
+        //         // console.log('printing registration data'+registrationData);
+
+        //         data.forEach(mf);
+        //         function mf(item){
+        //                 console.table(item);
+        //             const row = document.createElement('tr');
+        //             row.innerHTML = `<td>${item.id}</td>
+        //                              <td>${item.username}</td>
+        //                              <td>${item.email}</td>
+        //                              <td>${item.gender}</td>
+        //                              <td>${item.country}</td>`;
+        //             console.log(row);
+        //              registrationData.appendChild(row);
+        //          };
+        //     })
+        //    .catch(error => console.error('Error fetching data:', error));
+        fetch('/get_data')
+            .then(response => response.json())
+            .then(data => {
+                const registrationData = document.getElementById('registrationData');
+                data.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td>${item.id}</td>
+                                     <td>${item.username}</td>
+                                     <td>${item.email}</td>
+                                     <td>${item.gender}</td>
+                                     <td>${item.country}</td>`;
+                    registrationData.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Access Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('homepage') }}">RETURN TO HOME PAGE</a>
+    <div class="container">
+        <h2>Admin Access Page</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody id="registrationData">
+                
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+     
+        // Fetch data
+
+        // fetch('/get_data')
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         console.log(data);
+        //         const registrationData = document.getElementById('registrationData');
+        //         data.forEach(item => {
+        //             const row = document.createElement('tr');
+        //             row.innerHTML = `
+        //                 <td>${item.id}</td>
+        //                 <td>${item.username}</td>
+        //                 <td>${item.email}</td>
+        //                 <td>${item.gender}</td>
+        //                 <td>${item.country}</td>
+        //             `;
+        //             registrationData.appendChild(row);
+        //         });
+    // })
+    //         .catch(error => console.error('Error fetching data:', error));
+
+
+    fetch('/get_data')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        const registrationData = document.getElementById('registrationData');
+        data.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${item.id}</td>
+                             <td>${item.username}</td>
+                             <td>${item.email}</td>
+                             <td>${item.gender}</td>
+                             <td>${item.country}</td>`;
+            registrationData.appendChild(row);
+        });
+    });
+
+           
+    </script>
+
+</body>
+</html> -->
